@@ -1,4 +1,7 @@
+// ready to deploy
 import React, { Suspense } from 'react';
+import alanBtn from "@alan-ai/alan-sdk-web";
+import { useEffect } from 'react';
 import {
   ChakraProvider,
   Button,
@@ -8,6 +11,7 @@ import {
   theme,
   Link,
   HStack,
+  Center,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { Logo } from './Logo';
@@ -27,9 +31,24 @@ import {
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 function App() {
+
+  useEffect(() => {
+    alanBtn({
+      key: 'c62aa60334613b2305af1ca2e20ec5f32e956eca572e1d8b807a3e2338fdd0dc/stage',
+      onCommand: (commandData) => {
+        if (commandData.command === 'go:back') {
+          // Call the client code that will react to the received command
+        }
+      }
+    });
+  }, []);
+
+
+
+
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
+      <Box textAlign="center" fontSize="xl" p="100px">
         <Grid minH="75vh" p={3}>
           <HStack justifySelf="right">
             <Button colorScheme={'red'}>Home</Button>
@@ -38,14 +57,20 @@ function App() {
           <VStack spacing={8}>
             <div fontFamily="Source Sans Pro">
               <Logo h="70vmin" pointerEvents="none" />
-              This is Alan the bot <br />
+              I'm Alexbot 👦 <br />
               <br />
               <Link to="./Cards">
                 <Button colorScheme="red">Lets Explore More</Button>
               </Link>
             </div>
           </VStack>
-        </Grid>
+        </Grid> 
+        <br/>
+        <br/>
+        Hi there 👋 !! <br/>
+        I can talk to you on a variety of topics 🤖 ! Ask me anything about weather ☁️ today or some mathematical questions 🚀 . I have answers to all 
+your curiosity 🌋.
+   
       </Box>
       <Canvas>
         <directionalLight intensity={0.5} />
@@ -54,6 +79,8 @@ function App() {
           <Dance />
         </Suspense>
       </Canvas>
+      <div >
+      </div>
 
       <Box textAlign={'center'}>
         <Container as="footer" role="contentinfo" py={{ base: '12', md: '16' }}>
