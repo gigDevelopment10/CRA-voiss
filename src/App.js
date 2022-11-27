@@ -57,7 +57,7 @@ function App() {
           <VStack spacing={8}>
             <div fontFamily="Source Sans Pro">
               <Logo h="70vmin" pointerEvents="none" />
-              I'm Alexbot 👦 <br />
+              I'm Giggles bot 👦 <br />
               <br />
               <Link to="./Cards">
                 <Button colorScheme="red">Lets Explore More</Button>
